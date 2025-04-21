@@ -165,10 +165,7 @@ dist: clean-all $(DISTDIR).tar.gz
 # This creates a tarball with all the files
 # versioned by GIT.
 $(DISTDIR).tar.gz: $(DISTDIR)
-	$(MUTE)tar czf $(DISTDIR).tar.gz $(DISTDIR)
-	$(MUTE)rm -rf $(DISTDIR)
-	$(MUTE)cp $(DISTDIR).tar.gz ..
-	$(MUTE)rm -f $(DISTDIR).tar.gz
+	$(MUTE)tar --remove-files -czf ../$(DISTDIR).tar.gz $(DISTDIR)
 	# Created ../$(DISTDIR).tar.gz!
 
 # This copies all the source code files into a
