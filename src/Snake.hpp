@@ -17,16 +17,16 @@ struct SnakeBody
 /// The initial size of every snake.
 #define INITIAL_SIZE 3
 
-/// The initial direction of every snake
-#define INITIAL_DIRECTION (Snake::RIGHT)
-
 /// The snake controlled by the player.
 ///
 class Snake
 {
 public:
     /// All the directions the snake can move.
-    enum Directions { UP, DOWN, LEFT, RIGHT };
+    enum Directions { S_UP, S_DOWN, S_LEFT, S_RIGHT };
+	
+	/// The initial direction of every snake
+	static const Directions INITIAL_DIRECTION = Directions::S_RIGHT;
 
     /// Creates a snake at *board* on the board's specific initial
     /// x and y positions.

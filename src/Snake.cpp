@@ -69,23 +69,23 @@ void Snake::update()
 
     if (input->isKeyDown('w') ||
         input->isKeyDown(KEY_UP)) // make h,j,k,l
-        if (this->previousDirection != Snake::DOWN)
-            this->currentDirection = Snake::UP;
+        if (this->previousDirection != Snake::S_DOWN)
+            this->currentDirection = Snake::S_UP;
 
     if (input->isKeyDown('s') ||
         input->isKeyDown(KEY_DOWN))
-        if (this->previousDirection != Snake::UP)
-            this->currentDirection = Snake::DOWN;
+        if (this->previousDirection != Snake::S_UP)
+            this->currentDirection = Snake::S_DOWN;
 
     if (input->isKeyDown('a') ||
         input->isKeyDown(KEY_LEFT))
-        if (this->previousDirection != Snake::RIGHT)
-            this->currentDirection = Snake::LEFT;
+        if (this->previousDirection != Snake::S_RIGHT)
+            this->currentDirection = Snake::S_LEFT;
 
     if (input->isKeyDown('d') ||
         input->isKeyDown(KEY_RIGHT))
-        if (this->previousDirection != Snake::LEFT)
-            this->currentDirection = Snake::RIGHT;
+        if (this->previousDirection != Snake::S_LEFT)
+            this->currentDirection = Snake::S_RIGHT;
 }
 void Snake::move()
 {
@@ -131,10 +131,10 @@ void Snake::move()
     // current direction
     switch (this->currentDirection)
     {
-    case Snake::UP:    this->body[0].y -= 1; break;
-    case Snake::DOWN:  this->body[0].y += 1; break;
-    case Snake::LEFT:  this->body[0].x -= 1; break;
-    case Snake::RIGHT: this->body[0].x += 1; break;
+    case Snake::S_UP:    this->body[0].y -= 1; break;
+    case Snake::S_DOWN:  this->body[0].y += 1; break;
+    case Snake::S_LEFT:  this->body[0].x -= 1; break;
+    case Snake::S_RIGHT: this->body[0].x += 1; break;
 
     default: break;
     }
@@ -226,7 +226,7 @@ void Snake::teleport()
 
     switch (this->currentDirection)
     {
-    case Snake::RIGHT:
+    case Snake::S_RIGHT:
         valid  = Point((this->body[0].x - 1), this->body[0].y);
         border = valid;
 
@@ -239,7 +239,7 @@ void Snake::teleport()
         }
 
         break;
-    case Snake::LEFT:
+    case Snake::S_LEFT:
         valid  = Point((this->body[0].x + 1), this->body[0].y);
         border = valid;
 
@@ -253,7 +253,7 @@ void Snake::teleport()
 
         break;
 
-    case Snake::UP:
+    case Snake::S_UP:
         valid  = Point(this->body[0].x, (this->body[0].y + 1));
         border = valid;
 
@@ -266,7 +266,7 @@ void Snake::teleport()
         }
         break;
 
-    case Snake::DOWN:
+    case Snake::S_DOWN:
         valid  = Point(this->body[0].x, (this->body[0].y - 1));
         border = valid;
 
